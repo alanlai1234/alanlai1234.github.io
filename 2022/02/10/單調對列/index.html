@@ -16,20 +16,20 @@
     var CONFIG = {"hostname":"alanlai1234.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="終於架好部落格了！ 這裡陸續會搬運一些之前在hackmd上的筆記，不過會把它改寫的比較像教學一點（不然沒人看得懂我在公瞎），然後上一些題解跟活動心得。 hackmd筆記：link">
+  <meta name="description" content="用來維護一個遞增或遞減的資料。通常拿來維護一個區間的極值，或是序列中最靠近某個位置又比它大的值。 好像不能幹嗎 單調棧 monotonic stack  建立一個stack，存pair : {值, 位置} 從左到右，每次pop stack直到最高元素比自己大（目前位置減掉頂端，就是從當下往後數第一個比自己大的位置） 原因：  如果目前值比stack的頂還大，那目前的值也一定比小於stack頂端的值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hi blog">
-<meta property="og:url" content="https://alanlai1234.github.io/2022/02/10/hi-blog/index.html">
+<meta property="og:title" content="單調對列">
+<meta property="og:url" content="https://alanlai1234.github.io/2022/02/10/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97/index.html">
 <meta property="og:site_name" content="alan程式專區">
-<meta property="og:description" content="終於架好部落格了！ 這裡陸續會搬運一些之前在hackmd上的筆記，不過會把它改寫的比較像教學一點（不然沒人看得懂我在公瞎），然後上一些題解跟活動心得。 hackmd筆記：link">
+<meta property="og:description" content="用來維護一個遞增或遞減的資料。通常拿來維護一個區間的極值，或是序列中最靠近某個位置又比它大的值。 好像不能幹嗎 單調棧 monotonic stack  建立一個stack，存pair : {值, 位置} 從左到右，每次pop stack直到最高元素比自己大（目前位置減掉頂端，就是從當下往後數第一個比自己大的位置） 原因：  如果目前值比stack的頂還大，那目前的值也一定比小於stack頂端的值">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2022-02-10T13:15:22.000Z">
-<meta property="article:modified_time" content="2022-02-10T15:05:35.194Z">
+<meta property="article:published_time" content="2022-02-10T20:04:29.000Z">
+<meta property="article:modified_time" content="2022-02-10T20:15:16.593Z">
 <meta property="article:author" content="賴冠澐">
 <meta property="article:tag" content="code, comptitive programming, cp, blog, algorithm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://alanlai1234.github.io/2022/02/10/hi-blog/">
+<link rel="canonical" href="https://alanlai1234.github.io/2022/02/10/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97/">
 
 
 <script id="page-configurations">
@@ -42,7 +42,7 @@
   };
 </script>
 
-  <title>hi blog | alan程式專區</title>
+  <title>單調對列 | alan程式專區</title>
   
 
 
@@ -161,7 +161,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://alanlai1234.github.io/2022/02/10/hi-blog/">
+    <link itemprop="mainEntityOfPage" href="https://alanlai1234.github.io/2022/02/10/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +174,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hi blog
+          單調對列
         </h1>
 
         <div class="post-meta">
@@ -185,7 +185,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2022-02-10 13:15:22 / 修改時間：15:05:35" itemprop="dateCreated datePublished" datetime="2022-02-10T13:15:22+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:04:29 / 修改時間：20:15:16" itemprop="dateCreated datePublished" datetime="2022-02-10T20:04:29+00:00">2022-02-10</time>
             </span>
 
           
@@ -199,9 +199,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>終於架好部落格了！</p>
-<p>這裡陸續會搬運一些之前在hackmd上的筆記，不過會把它改寫的比較像教學一點（不然沒人看得懂我在公瞎），然後上一些題解跟活動心得。</p>
-<p>hackmd筆記：<a target="_blank" rel="noopener" href="https://hackmd.io/@alanlai/alanlai_cp">link</a></p>
+        <p>用來維護一個遞增或遞減的資料。通常拿來維護一個區間的極值，或是序列中最靠近某個位置又比它大的值。</p>
+<p><del>好像不能幹嗎</del></p>
+<h2 id="單調棧-monotonic-stack">單調棧 monotonic stack</h2>
+<ol type="1">
+<li>建立一個stack，存pair : <strong>{值, 位置}</strong></li>
+<li>從左到右，每次pop stack直到最高元素比自己大（目前位置減掉頂端，就是從當下往後數第一個比自己大的位置）</li>
+<li>原因：
+<ul>
+<li>如果目前值比stack的頂還大，那目前的值也一定比小於stack頂端的值還大（也就是前面步驟所pop掉的）。但卻不知道會不會大於stack頂端的值還大，所以要pop直到比自己還大。</li>
+</ul></li>
+</ol>
+<ul>
+<li><span class="math inline">\(O(2n) = O(n)\)</span> 一個點最多走兩次</li>
+<li>優化: 二分搜(<span class="math inline">\(O(n+logn)\)</span>)</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="function">vci <span class="title">nums</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="built_in">rep</span>(<span class="number">0</span>,n) cin&gt;&gt;nums[i];</span><br><span class="line">    stack&lt;PII&gt; st;</span><br><span class="line">    LL res=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">rep</span>(<span class="number">0</span>,n)&#123;</span><br><span class="line">        <span class="keyword">while</span>(!st.<span class="built_in">empty</span>() &amp;&amp; st.<span class="built_in">top</span>().F&lt;=nums[i])&#123;</span><br><span class="line">            st.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        res+= st.<span class="built_in">empty</span>() ? i+<span class="number">1</span>:i-st.<span class="built_in">top</span>().S;</span><br><span class="line">        st.<span class="built_in">push</span>(&#123;nums[i], i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; NL;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="單調對列">單調對列</h2>
+<ul>
+<li>跟單調棧一樣，但是多了要維持邊界</li>
+<li>用deque，右邊做單調性維護，左邊做邊界維護(超過範圍pop掉）</li>
+<li>通常拿來做dp優化(ex:如果要從前k個dp轉移，就可以用單調隊列取符合邊界但的最值）</li>
+<li><span class="math inline">\(O(n)\)</span></li>
+</ul>
 
     </div>
 
@@ -216,10 +236,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/02/10/%E5%B7%AE%E5%88%86%E5%89%8D%E7%B6%B4%E5%92%8C/" rel="next" title="差分前綴和">
-      差分前綴和 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/02/10/%E5%B7%AE%E5%88%86%E5%89%8D%E7%B6%B4%E5%92%8C/" rel="prev" title="差分前綴和">
+      <i class="fa fa-chevron-left"></i> 差分前綴和
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/02/10/%E7%9F%A9%E9%99%A3-%E5%BF%AB%E9%80%9F%E5%86%AA/" rel="next" title="(矩陣)快速冪">
+      (矩陣)快速冪 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -279,6 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%AE%E8%AA%BF%E6%A3%A7-monotonic-stack"><span class="nav-number">1.</span> <span class="nav-text">單調棧 monotonic stack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">單調對列</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,6 +412,59 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
