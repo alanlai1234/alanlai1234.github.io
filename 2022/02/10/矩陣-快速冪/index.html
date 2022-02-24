@@ -24,7 +24,7 @@
 <meta property="og:description" content="快速冪 先不講矩陣，來講快速冪這個好東西。  直覺的計算次方是\(O(n)\)一個一個算，但其實能更快 把次方拆成一半，如果是奇數的話先拿掉一個次方。所以只要算一半的次方，算出後再乘自己。 ex: \(2^{18}\)可以拆成兩個\(2^9\)，因為\(2^9\)是奇數所以拆成\(2^8\times2^1\)，再把\(2^8\)拆為兩個\(2^4\)。以此類推到\(2^1\)。 複雜度\(O(lo">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2022-02-10T20:14:38.000Z">
-<meta property="article:modified_time" content="2022-02-10T20:36:28.417Z">
+<meta property="article:modified_time" content="2022-02-24T18:00:47.938Z">
 <meta property="article:author" content="賴冠澐">
 <meta property="article:tag" content="code, comptitive programming, cp, blog, algorithm">
 <meta name="twitter:card" content="summary">
@@ -183,10 +183,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:14:38 / 修改時間：20:36:28" itemprop="dateCreated datePublished" datetime="2022-02-10T20:14:38+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:14:38" itemprop="dateCreated datePublished" datetime="2022-02-10T20:14:38+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 18:00:47" itemprop="dateModified" datetime="2022-02-24T18:00:47+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -207,6 +213,7 @@
 <li>ex: <span class="math inline">\(2^{18}\)</span>可以拆成兩個<span class="math inline">\(2^9\)</span>，因為<span class="math inline">\(2^9\)</span>是奇數所以拆成<span class="math inline">\(2^8\times2^1\)</span>，再把<span class="math inline">\(2^8\)</span>拆為兩個<span class="math inline">\(2^4\)</span>。以此類推到<span class="math inline">\(2^1\)</span>。</li>
 <li>複雜度<span class="math inline">\(O(log(n))\)</span></li>
 </ul>
+<span id="more"></span>
 <p>程式碼：</p>
 <p>遞迴： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">fastpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="built_in">fastpow</span>(a, b / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (b % <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> res * res * a;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> res * res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>iteration: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">fastpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a;</span><br><span class="line">        a = a * a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -318,7 +325,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>

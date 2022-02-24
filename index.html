@@ -158,6 +158,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://alanlai1234.github.io/2022/02/24/cses-elevator-rides-%E9%A1%8C%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="賴冠澐">
+      <meta itemprop="description" content="hi world">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="alan程式專區">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/02/24/cses-elevator-rides-%E9%A1%8C%E8%A7%A3/" class="post-title-link" itemprop="url">cses elevator rides 題解</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+              
+
+              <time title="創建時間：2022-02-24 17:55:37 / 修改時間：17:59:04" itemprop="dateCreated datePublished" datetime="2022-02-24T17:55:37+00:00">2022-02-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><a target="_blank" rel="noopener" href="https://cses.fi/problemset/task/1653">problem</a></p>
+<ul>
+<li>位元dp</li>
+<li>二進位數字set中為1表示已坐電梯，反之為0</li>
+<li>dp[set]表示子集set中的狀態已坐過電梯的最小答案</li>
+<li>last[set]表示字集set中的狀態最後一次搭乘電梯所剩下的重量</li>
+<li>每個字集中，考慮每個人為最後進入電梯的情況下答案會不會更好或是沒變好但是剩餘重量變小。</li>
+<li><span class="math inline">\(dp[set]=\min_{\forall j \in set}(dp[\)</span>set ~(1&lt;&lt;j)<span class="math inline">\(])\)</span>
+<ul>
+<li>如果last[set &amp; ~(1&lt;&lt;j)]+weight[j]&gt;x，則dp[set ~(1&lt;&lt;j)]要加一，代表不能和上一次電梯一起搭乘，要等下一次。</li>
+</ul></li>
+<li><span class="math inline">\(O(n\times2^n)\)</span></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/24/cses-elevator-rides-%E9%A1%8C%E8%A7%A3/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
     <link itemprop="mainEntityOfPage" href="https://alanlai1234.github.io/2022/02/10/%E6%8B%93%E6%A8%B8%E6%8E%92%E5%BA%8F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -181,10 +259,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:41:47 / 修改時間：20:45:58" itemprop="dateCreated datePublished" datetime="2022-02-10T20:41:47+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:41:47" itemprop="dateCreated datePublished" datetime="2022-02-10T20:41:47+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 17:59:43" itemprop="dateModified" datetime="2022-02-24T17:59:43+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -211,13 +295,14 @@
 <li>如果dag的排序中未包含所有點，代表圖不是dag，因為有些點在刪除其他點後的入邊數還不是0</li>
 <li><span class="math inline">\(O(v+e)\)</span></li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;<span class="comment">// n: 點個數 m:邊個數</span></span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">graph</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;());</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">cnt</span><span class="params">(n, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;++i)&#123;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        graph[a].<span class="built_in">push_back</span>(b);</span><br><span class="line">        cnt[b]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// find the node with no edge</span></span><br><span class="line">    queue&lt;<span class="type">int</span>&gt; topo;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)</span><br><span class="line">        <span class="keyword">if</span>(cnt[i]==<span class="number">0</span>)</span><br><span class="line">            topo.<span class="built_in">push</span>(i);</span><br><span class="line"></span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; ans;</span><br><span class="line">    <span class="keyword">while</span>(!topo.<span class="built_in">empty</span>())&#123;</span><br><span class="line">        <span class="type">int</span> v=topo.<span class="built_in">front</span>();</span><br><span class="line">        topo.<span class="built_in">pop</span>();</span><br><span class="line">        ans.<span class="built_in">push_back</span>(v);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a:graph[v])&#123;</span><br><span class="line">            cnt[a]--;</span><br><span class="line">            <span class="keyword">if</span>(cnt[a]==<span class="number">0</span>)</span><br><span class="line">                topo.<span class="built_in">push</span>(a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="dag最短路徑">dag最短路徑</h2>
-<ul>
-<li>從第一個位置開始，比對它所連到位置其路徑長（or加權重）是否為最小，aka. dp[j]=min(dp[j], dp[i]+weight[j]), j為i連到的地方，weight[i]為邊的權重。</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// assume topo[] is a result of a topological sort</span></span><br><span class="line"><span class="comment">// and gh is the neighboring matrix</span></span><br><span class="line">LL ans=<span class="number">0</span>;</span><br><span class="line">dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line"><span class="built_in">rep</span>(i,<span class="number">0</span>,n)&#123;</span><br><span class="line">	ans+=dp[topo[i]];</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">auto</span> a:gh[topo[i]])&#123;</span><br><span class="line">		dp[a.F]=<span class="built_in">min</span>(dp[a.F], dp[topo[i]]+a.S);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">cout&lt;&lt;ans&lt;&lt;NL;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/%E6%8B%93%E6%A8%B8%E6%8E%92%E5%BA%8F/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -259,10 +344,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:40:22 / 修改時間：20:49:19" itemprop="dateCreated datePublished" datetime="2022-02-10T20:40:22+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:40:22" itemprop="dateCreated datePublished" datetime="2022-02-10T20:40:22+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 17:59:13" itemprop="dateModified" datetime="2022-02-24T17:59:13+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -281,98 +372,14 @@
 <li>先做一個euler tour (dfs)，從頭一路到底，左邊優先，回到根後在到下一個子節點，每次到達一個點都要紀錄高度</li>
 <li>也要紀錄每個節點編號對應到height表中的位置（last表格），如果一個節點對應到多個位置（非葉節點都是），只須紀錄最後的位置，因為查詢時兩點最小值不會變</li>
 </ul>
-<figure>
-<img src="https://i.imgur.com/8SiJdB2.png" alt="from cp-algorithm" /><figcaption aria-hidden="true">from cp-algorithm</figcaption>
-</figure>
-<table>
-<thead>
-<tr class="header">
-<th>index:</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-<th>8</th>
-<th>9</th>
-<th>10</th>
-<th>11</th>
-<th>12</th>
-<th>13</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>height:</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-<td>3</td>
-<td>2</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td>node:</td>
-<td>1</td>
-<td>2</td>
-<td>5</td>
-<td>2</td>
-<td>6</td>
-<td>2</td>
-<td>1</td>
-<td>3</td>
-<td>1</td>
-<td>4</td>
-<td>7</td>
-<td>4</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th>index:</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-<th>6</th>
-<th>7</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>last:</td>
-<td>1</td>
-<td>6</td>
-<td>8</td>
-<td>12</td>
-<td>3</td>
-<td>5</td>
-<td>11</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>從last表中找出要找的兩個點x, y對應到height表的位置，並在兩個位置之間找height最小值（height值從上到下遞增）即所求，因為是在eulerian tour時兩點之間最高點，也是最低共同祖先</li>
-<li><span class="math inline">\(lca(x, y)=node[\ min\_element\_index(height[\ last[x]\sim\ last[y]\ ])\ ]\)</span></li>
-<li><span class="math inline">\(min\_element\_index()\)</span>即為區間最小值的位置，用sparse table</li>
-<li>預處理：<span class="math inline">\(O(n+nlogn)\)</span>, 查詢：<span class="math inline">\(O(1)\)</span></li>
-</ul>
-<p>模板題：https://zerojudge.tw/ShowProblem?problemid=d767</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> EB emplace_back</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vci vector<span class="string">&lt;int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(X, a,b) for(int X=a;X&lt;b;++X)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALL(a) (a).begin(), (a).end()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SZ(a) (int)(a).size()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NL <span class="string">&quot;\n&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC optimize(<span class="string">&quot;O3,unroll-loops&quot;</span>)</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> GCC target(<span class="string">&quot;avx2,bmi,bmi2,lzcnt,popcnt&quot;</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; g[<span class="number">30010</span>], ht, node, log_2;</span><br><span class="line"><span class="type">int</span> last[<span class="number">30010</span>];</span><br><span class="line">vector&lt;vector&lt;LL&gt;&gt; sp;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> depth, <span class="type">int</span> e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> a:g[e])&#123;</span><br><span class="line">        last[e]=ht.<span class="built_in">size</span>();</span><br><span class="line">        ht.<span class="built_in">EB</span>(depth);</span><br><span class="line">        node.<span class="built_in">EB</span>(e);</span><br><span class="line">        <span class="built_in">dfs</span>(depth+<span class="number">1</span>, a);</span><br><span class="line">    &#125;</span><br><span class="line">    last[e]=ht.<span class="built_in">size</span>();</span><br><span class="line">    ht.<span class="built_in">EB</span>(depth);</span><br><span class="line">    node.<span class="built_in">EB</span>(e);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">query</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> k=log_2[r-l+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span>(ht[sp[l][k]]&gt;ht[sp[r-(<span class="number">1</span>&lt;&lt;k)+<span class="number">1</span>][k]]) <span class="keyword">return</span> sp[r-(<span class="number">1</span>&lt;&lt;k)+<span class="number">1</span>][k];</span><br><span class="line">    <span class="keyword">return</span> sp[l][k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    LL n, q, a, b;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;q;</span><br><span class="line">    <span class="built_in">rep</span>(i,<span class="number">1</span>,n+<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">while</span>(cin&gt;&gt;a)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            g[i].<span class="built_in">EB</span>(a);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//eulerian tour</span></span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//sparse table</span></span><br><span class="line">    LL len=ht.<span class="built_in">size</span>();</span><br><span class="line">    log_2.<span class="built_in">resize</span>(len+<span class="number">1</span>);</span><br><span class="line">    sp.<span class="built_in">resize</span>(len+<span class="number">1</span>, <span class="built_in">vector</span>&lt;LL&gt;(<span class="number">30</span>));</span><br><span class="line">    log_2[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=len;++i) log_2[i]=log_2[i/<span class="number">2</span>]+<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">rep</span>(i,<span class="number">0</span>,len) sp[i][<span class="number">0</span>]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=log_2[len];++j)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i+(<span class="number">1</span>&lt;&lt;j)&lt;=len;++i)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ht[sp[i][j<span class="number">-1</span>]]&gt;ht[sp[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>]]) sp[i][j]=sp[i+(<span class="number">1</span>&lt;&lt;(j<span class="number">-1</span>))][j<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">else</span> sp[i][j]=sp[i][j<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(q--)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        <span class="type">int</span> pos=<span class="built_in">query</span>(<span class="built_in">min</span>(last[a], last[b]), <span class="built_in">max</span>(last[a], last[b]));</span><br><span class="line">        cout&lt;&lt;node[pos]&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;ht[last[a]]-ht[pos]+ht[last[b]]-ht[pos]&lt;&lt;NL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/lowest-common-ancestor/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -414,10 +421,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:37:50 / 修改時間：20:39:33" itemprop="dateCreated datePublished" datetime="2022-02-10T20:37:50+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:37:50" itemprop="dateCreated datePublished" datetime="2022-02-10T20:37:50+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 17:59:22" itemprop="dateModified" datetime="2022-02-24T17:59:22+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -437,36 +450,14 @@
 <blockquote>
 <p>如果一張圖可以分成兩群，而這兩群的邊都是連到另一群的，也就是不會連到自己</p>
 </blockquote>
-<h2 id="augmenting-path-algorithm">Augmenting Path Algorithm</h2>
-<div class="info">
-<p>交錯路徑：一條路徑中，已配對的邊和沒配對的邊相互交錯連接 增廣路徑：一個交錯路徑，但是頭尾都是未配對的邊</p>
-</div>
-<ul>
-<li>增廣路徑中，把已配對的邊變成未配對，未配對變成已配對，這時配對數量一定會增 加1個（想想種樹問題）
-<ul>
-<li>原本的增廣路徑路徑： <img src="https://i.imgur.com/q7H2owv.png" /></li>
-<li>互換後的增廣路徑： <img src="https://i.imgur.com/ZOR30hW.png" /></li>
-</ul></li>
-<li>所以作法是：枚舉每個左邊的點，dfs找從這一點開始的增廣路徑。如果找到就加一（包只有一個邊但未配對的），然後遞迴回去把配對互換。</li>
-<li>如果找不當增廣路徑的話就結束</li>
-<li><span class="math inline">\(O(mn)\)</span></li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> EB emplace_back</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> vci vector<span class="string">&lt;int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PII pair<span class="string">&lt;int,int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> F first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> S second</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rep(X, a,b) for(int X=a;X&lt;b;++X)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ALL(a) (a).begin(), (a).end()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SZ(a) (int)(a).size()</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NL <span class="string">&quot;\n&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//lm: left node pairs, right node pairs, done:visited</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; lm, rm, done;</span><br><span class="line">vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; lg;<span class="comment">// edges from the left</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> nd)</span></span>&#123;</span><br><span class="line">    done[nd]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> a:lg[nd])&#123;</span><br><span class="line">        <span class="keyword">if</span>(rm[a]==<span class="number">-1</span> || (!done[rm[a]] &amp;&amp; <span class="built_in">dfs</span>(rm[a])))&#123;</span><br><span class="line">            lm[nd]=a;</span><br><span class="line">            rm[a]=nd;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n, m, k; <span class="comment">// left nodes:n, right nodes:m, edges:k</span></span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">    lm.<span class="built_in">resize</span>(n, <span class="number">-1</span>);</span><br><span class="line">    rm.<span class="built_in">resize</span>(m, <span class="number">-1</span>);</span><br><span class="line">    done.<span class="built_in">resize</span>(n);</span><br><span class="line">    lg.<span class="built_in">resize</span>(n);</span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="built_in">rep</span>(i,<span class="number">0</span>,k)&#123;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;</span><br><span class="line">        a--, b--;</span><br><span class="line">        lg[a].<span class="built_in">EB</span>(b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    LL ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">rep</span>(i,<span class="number">0</span>,n)&#123;</span><br><span class="line">        <span class="built_in">fill</span>(<span class="built_in">ALL</span>(done), <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">dfs</span>(i)) ans++; <span class="comment">//有增廣路徑</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;NL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="網路流">網路流</h2>
-<ul>
-<li>問題可以轉為最大網路流</li>
-<li>設一個起點，連到二分圖左邊所有的點</li>
-<li>二分圖右邊所有點則連到一個終點</li>
-<li>所有邊（包括二分圖裡）都設最大流量為1
-<ul>
-<li>因此每個左邊每個點最多只會從起點連進1個邊，然後右邊所有的點最多只有一個邊能流出去到終點</li>
-</ul></li>
-</ul>
-<p><img src="https://i.stack.imgur.com/MjMn3.jpg" /></p>
-<ul>
-<li>dinic's algorithm: <span class="math inline">\(O(\sqrt{n}m)\)</span></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/%E4%BA%8C%E5%88%86%E5%9C%96%E6%9C%80%E5%A4%A7%E5%8C%B9%E9%85%8D/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -508,10 +499,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:14:38 / 修改時間：20:36:28" itemprop="dateCreated datePublished" datetime="2022-02-10T20:14:38+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:14:38" itemprop="dateCreated datePublished" datetime="2022-02-10T20:14:38+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 18:00:47" itemprop="dateModified" datetime="2022-02-24T18:00:47+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -532,24 +529,14 @@
 <li>ex: <span class="math inline">\(2^{18}\)</span>可以拆成兩個<span class="math inline">\(2^9\)</span>，因為<span class="math inline">\(2^9\)</span>是奇數所以拆成<span class="math inline">\(2^8\times2^1\)</span>，再把<span class="math inline">\(2^8\)</span>拆為兩個<span class="math inline">\(2^4\)</span>。以此類推到<span class="math inline">\(2^1\)</span>。</li>
 <li>複雜度<span class="math inline">\(O(log(n))\)</span></li>
 </ul>
-<p>程式碼：</p>
-<p>遞迴： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">fastpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (b == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="built_in">fastpow</span>(a, b / <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> (b % <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> res * res * a;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> res * res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>iteration: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">fastpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) res = res * a;</span><br><span class="line">        a = a * a;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="矩陣快速冪">矩陣快速冪</h2>
-<ul>
-<li><p>重點：把不斷相加的問題化成矩陣相乘，而相乘的部份就可以利用矩陣快速冪。</p></li>
-<li><p>經典題：費氏數列<span class="math inline">\(O(logn)\)</span>解，<a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/784710/how-to-prove-fibonacci-sequence-with-matrices/784723#784723">證明</a></p></li>
-</ul>
-<p><span class="math inline">\(A^{n+1}=\begin{pmatrix}F_{n+2} &amp; F_{n+1} \\ F_{n+1} &amp; F_{n} \end{pmatrix}\)</span></p>
-<ul>
-<li><span class="math inline">\(fib(n)=A^{n-1}[0][0]\)</span></li>
-<li>用快速冪方法</li>
-</ul>
-<p>matrix: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">mat</span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> a[<span class="number">2</span>][<span class="number">2</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    mat <span class="keyword">operator</span> * (mat &amp;inp)&#123;</span><br><span class="line">        mat res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;++i)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">2</span>;++j)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;k&lt;<span class="number">2</span>;++k)</span><br><span class="line">                    res.a[i][j]+=a[i][k]*inp.a[k][j];</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>快速冪： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mat base;</span><br><span class="line"></span><br><span class="line"><span class="function">mat <span class="title">fpow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">1</span>) <span class="keyword">return</span> base;</span><br><span class="line">    mat res=<span class="built_in">fpow</span>(b/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> res*res*base;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> res*res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>主程式： <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    base.a[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    base.a[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    base.a[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> n;</span><br><span class="line">    </span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) cout &lt;&lt; <span class="number">0</span> &lt;&lt; NL;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n==<span class="number">1</span>) cout &lt;&lt; <span class="number">1</span> &lt;&lt; NL;</span><br><span class="line">    <span class="keyword">else</span> cout &lt;&lt; <span class="built_in">fpow</span>(n<span class="number">-1</span>).a[<span class="number">0</span>][<span class="number">0</span>] &lt;&lt; NL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><strong>待補</strong> * 也可以做簡單的dp優化 * ex: 給一個長1xn的長條1x1和1x2的長條，求有幾種填滿方式 * 轉移式：<span class="math inline">\(dp[i]=dp[i-1]+dp[i-2]\)</span>（dp[i-1]是假設用1x1來填，dp[i-2]是假設用1x2填） * 如果變矩陣相乘：</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/%E7%9F%A9%E9%99%A3-%E5%BF%AB%E9%80%9F%E5%86%AA/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -591,10 +578,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 20:04:29 / 修改時間：20:15:16" itemprop="dateCreated datePublished" datetime="2022-02-10T20:04:29+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 20:04:29" itemprop="dateCreated datePublished" datetime="2022-02-10T20:04:29+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 17:59:27" itemprop="dateModified" datetime="2022-02-24T17:59:27+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -609,28 +602,14 @@
       
           <p>用來維護一個遞增或遞減的資料。通常拿來維護一個區間的極值，或是序列中最靠近某個位置又比它大的值。</p>
 <p><del>好像不能幹嗎</del></p>
-<h2 id="單調棧-monotonic-stack">單調棧 monotonic stack</h2>
-<ol type="1">
-<li>建立一個stack，存pair : <strong>{值, 位置}</strong></li>
-<li>從左到右，每次pop stack直到最高元素比自己大（目前位置減掉頂端，就是從當下往後數第一個比自己大的位置）</li>
-<li>原因：
-<ul>
-<li>如果目前值比stack的頂還大，那目前的值也一定比小於stack頂端的值還大（也就是前面步驟所pop掉的）。但卻不知道會不會大於stack頂端的值還大，所以要pop直到比自己還大。</li>
-</ul></li>
-</ol>
-<ul>
-<li><span class="math inline">\(O(2n) = O(n)\)</span> 一個點最多走兩次</li>
-<li>優化: 二分搜(<span class="math inline">\(O(n+logn)\)</span>)</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="function">vci <span class="title">nums</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="built_in">rep</span>(<span class="number">0</span>,n) cin&gt;&gt;nums[i];</span><br><span class="line">    stack&lt;PII&gt; st;</span><br><span class="line">    LL res=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">rep</span>(<span class="number">0</span>,n)&#123;</span><br><span class="line">        <span class="keyword">while</span>(!st.<span class="built_in">empty</span>() &amp;&amp; st.<span class="built_in">top</span>().F&lt;=nums[i])&#123;</span><br><span class="line">            st.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        res+= st.<span class="built_in">empty</span>() ? i+<span class="number">1</span>:i-st.<span class="built_in">top</span>().S;</span><br><span class="line">        st.<span class="built_in">push</span>(&#123;nums[i], i&#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; NL;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="單調對列">單調對列</h2>
-<ul>
-<li>跟單調棧一樣，但是多了要維持邊界</li>
-<li>用deque，右邊做單調性維護，左邊做邊界維護(超過範圍pop掉）</li>
-<li>通常拿來做dp優化(ex:如果要從前k個dp轉移，就可以用單調隊列取符合邊界但的最值）</li>
-<li><span class="math inline">\(O(n)\)</span></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/%E5%96%AE%E8%AA%BF%E5%B0%8D%E5%88%97/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -672,10 +651,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2022-02-10 13:17:52 / 修改時間：20:03:28" itemprop="dateCreated datePublished" datetime="2022-02-10T13:17:52+00:00">2022-02-10</time>
+              <time title="創建時間：2022-02-10 13:17:52" itemprop="dateCreated datePublished" datetime="2022-02-10T13:17:52+00:00">2022-02-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2022-02-24 17:59:34" itemprop="dateModified" datetime="2022-02-24T17:59:34+00:00">2022-02-24</time>
+              </span>
 
           
 
@@ -698,8 +683,14 @@
 <li>如果要在<span class="math inline">\(A_l\)</span>到<span class="math inline">\(A_N\)</span>全部加上<span class="math inline">\(x\)</span>，只需要在<span class="math inline">\(D_l\)</span>加上<span class="math inline">\(x\)</span>，再求其前綴和就可以了，因為在<span class="math inline">\(D_l\)</span>~<span class="math inline">\(D_n\)</span>的前綴和都會包含到<span class="math inline">\(D_l\)</span>(前綴和是由左往右)。</li>
 <li>相同的如果只要在<span class="math inline">\([l, r]\)</span>加<span class="math inline">\(x\)</span>，就在<span class="math inline">\(D_l\)</span>加<span class="math inline">\(x\)</span>，<span class="math inline">\(D_r\)</span>減<span class="math inline">\(x\)</span>，所以前綴和在<span class="math inline">\(D_l\)</span>加了<span class="math inline">\(x\)</span>後，又在<span class="math inline">\(D_r\)</span>減掉<span class="math inline">\(x\)</span>而恢復原來數字。</li>
 </ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> n, m; <span class="comment">// n:length of array    m:amount of modify</span></span><br><span class="line">cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">val</span><span class="params">(n+<span class="number">2</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"><span class="built_in">rep</span>(<span class="number">0</span>,m)&#123;</span><br><span class="line">    <span class="type">int</span> a, b, x;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; x;<span class="comment">// [l,r] add x</span></span><br><span class="line">    val[a]+=x;</span><br><span class="line">    val[b+<span class="number">1</span>]-=x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">rep</span>(<span class="number">1</span>,n+<span class="number">1</span>)&#123;</span><br><span class="line">    val[i]+=val[i<span class="number">-1</span>]; <span class="comment">// 算其前綴合並還原為原序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/10/%E5%B7%AE%E5%88%86%E5%89%8D%E7%B6%B4%E5%92%8C/#more" rel="contents">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -841,7 +832,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
